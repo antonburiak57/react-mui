@@ -53,12 +53,13 @@ function NavItem({ item, open, pathname }:NavItemProps) {
         component="span"
         className="svg-color"
         sx={{
-          width: 56,
+          width: 54,
           height: 50,
           display: 'inline-block',
-          bgcolor: pathname === path ? '#54A6FB' : '#54A6FB',
-          mask: `url(/assets/icons/navbar/${icon}.svg) no-repeat center / contain`,
-          WebkitMask: `url(/assets/icons/navbar/${icon}.svg) no-repeat center / contain`
+          backgroundImage: `url(/assets/icons/navbar/${pathname === path ? icon + 'Active' : icon}.svg)`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          borderRadius: '10px'
         }}
       />
       }

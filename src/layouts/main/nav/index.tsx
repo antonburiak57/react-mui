@@ -6,7 +6,6 @@ import NavSection from '../../../components/nav-section';
 import navConfig from './config';
 
 const NAV_WIDTH = 84;
-const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 80;
 
 type NavProps = {

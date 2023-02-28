@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import {
-  Button,
   Box
 } from '@mui/material';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';

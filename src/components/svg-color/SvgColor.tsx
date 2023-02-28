@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
 // @mui
 import { Box } from '@mui/material';
 import React from 'react';

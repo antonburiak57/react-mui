@@ -80,7 +80,7 @@ export default function MenuBar({ search }:MenuBarProps) {
         }}
       >
         {menus.map((menu) => (
-          <MenuItem key={menu.title} menu={menu} setMenu={handleMenu} selected={selectedMenu == menu.title} />
+          <MenuItem key={menu.title} menu={menu} setMenu={handleMenu} selected={selectedMenu === menu.title} />
         ))}
       </Box>
     </Box>

@@ -1,4 +1,3 @@
-import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import Header from '../sections/@list/Header';
 import MenuBar from '../sections/@list/MenuBar';
@@ -6,8 +5,6 @@ import ToolBar from '../sections/@list/ToolBar';
 import DataTable from '../sections/@list/DataTable';
 
 export default function UserPage() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{

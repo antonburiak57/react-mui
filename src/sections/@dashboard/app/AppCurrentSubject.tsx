@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import ReactApexChart from 'react-apexcharts';
 // @mui
 import { styled } from '@mui/material/styles';

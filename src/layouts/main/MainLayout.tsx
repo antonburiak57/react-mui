@@ -24,9 +24,9 @@ const Main = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
     paddingTop: APP_BAR_DESKTOP,
     paddingLeft: theme.spacing(1),
-    paddingBottom: 0,
-    display: 'flex'
+    paddingBottom: 0
   },
+  display: 'flex'
 }));
 
 const Content = styled('div')(({ theme }) => ({

@@ -1,4 +1,3 @@
-import { Theme } from '@emotion/react';
 import { alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------

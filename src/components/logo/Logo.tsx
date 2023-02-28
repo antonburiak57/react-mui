@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { useTheme } from '@mui/material/styles';
