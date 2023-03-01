@@ -20,6 +20,11 @@ const navConfig = [
     icon: 'Projects',
   },
   {
+    title: 'Apps',
+    path: '/',
+    icon: 'Apps',
+  },
+  {
     title: 'Favorites',
     path: '/',
     icon: 'Favourites',

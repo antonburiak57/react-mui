@@ -33,10 +33,10 @@ const Content = styled('div')(({ theme }) => ({
   backgroundColor: '#F5F5F5',
   width: '100%',
   height: `calc(100vh - 170px)`,
-  paddingLeft: theme.spacing(2),
-  paddingRight: theme.spacing(2),
-  paddingTop: theme.spacing(3),
-  paddingBottom: theme.spacing(2.5),
+  paddingLeft: theme.spacing(1),
+  paddingRight: theme.spacing(1),
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(1),
 }));
 
 export default function MainLayout() {

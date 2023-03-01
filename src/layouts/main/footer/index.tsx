@@ -6,15 +6,19 @@ import {
   const toolbars = [
     {
       title: 'Add comment',
-      icon: 'footer/add_comment'
+      icon: 'footer/add_comment',
+      active: true
     },
     {
       title: 'Archive',
-      icon: 'footer/archive'
+      icon: 'footer/archive',
+      active: true
     },
     {
       title: 'Delete list',
-      icon: 'footer/delete_list'
+      icon: 'footer/delete_list',
+      active: true,
+      color: '#c92929'
     }
   ];
   

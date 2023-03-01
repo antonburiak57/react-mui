@@ -48,6 +48,21 @@ export default function Header({ search }:HeaderProps) {
         >
           Flexlists SaaS
         </Box>
+        <Box
+          component="span"
+          className="svg-color"
+          sx={{
+            width: 24,
+            height: 24,
+            display: 'inline-block',
+            bgcolor: '#16385C',
+            mask: `url(/assets/icons/dots.svg) no-repeat center / contain`,
+            WebkitMask: `url(/assets/icons/dots.svg) no-repeat center / contain`,
+            marginLeft: 1,
+            marginTop: 0.3,
+            cursor: 'pointer'
+          }}
+        />
       </Box>
       <Box
         sx={{

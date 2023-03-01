@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import Logo from '../../../components/logo';
 import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
+// import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
 
 const HEADER_MOBILE = 64;
@@ -65,7 +65,20 @@ export default function Header({ onOpenNav }:HeaderProps) {
             sm: 1,
           }}
         >
-          <LanguagePopover />
+          {/* <LanguagePopover /> */}
+          <Box
+            component="span"
+            className="svg-color"
+            sx={{
+              width: 24,
+              height: 24,
+              display: 'inline-block',
+              backgroundImage: `url(/assets/icons/header/light.svg)`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              cursor: 'pointer'
+            }}
+          />
           <NotificationsPopover />
           <AccountPopover />
         </Stack>
