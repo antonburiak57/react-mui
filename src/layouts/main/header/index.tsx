@@ -1,8 +1,7 @@
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import Logo from '../../../components/logo';
 import AccountPopover from './AccountPopover';
-// import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
 
 const HEADER_MOBILE = 64;
@@ -10,7 +9,7 @@ const HEADER_MOBILE = 64;
 const HEADER_DESKTOP = 80;
 
 const StyledRoot = styled(AppBar)(({ theme }) => ({
-  backgroundColor: 'white',
+  backgroundColor: theme.palette.palette_style.background.default,
   boxShadow: 'none'
 }));
 
@@ -27,6 +26,8 @@ type HeaderProps = {
 };
 
 export default function Header({ onOpenNav }:HeaderProps) {
+  const theme = useTheme();
+
   return (
     <StyledRoot>
       <StyledToolbar>
@@ -34,7 +35,7 @@ export default function Header({ onOpenNav }:HeaderProps) {
           onClick={onOpenNav}
           sx={{
             mr: 1,
-            color: 'text.primary',
+            color: theme.palette.palette_style.text.primary,
           }}
         >
           <Box
@@ -65,20 +66,6 @@ export default function Header({ onOpenNav }:HeaderProps) {
             sm: 1,
           }}
         >
-          {/* <LanguagePopover /> */}
-          <Box
-            component="span"
-            className="svg-color"
-            sx={{
-              width: 24,
-              height: 24,
-              display: 'inline-block',
-              backgroundImage: `url(/assets/icons/header/light.svg)`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              cursor: 'pointer'
-            }}
-          />
           <NotificationsPopover />
           <AccountPopover />
         </Stack>

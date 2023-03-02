@@ -2,6 +2,7 @@ import {
   Box
 } from '@mui/material';
 import ToolBarItem from '../../components/toolbar';
+import { useTheme } from '@mui/material/styles';
 
 type ToolbBarProps = {
   search?: string
@@ -71,12 +72,14 @@ const actions = [
 ];
 
 export default function ToolbBar({ search }:ToolbBarProps) {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
         display: 'flex',
-        py: 1,
-        borderBottom: '1px solid rgba(0, 0, 0, 0.03)'
+        py: 0.5,
+        borderBottom: `1px solid ${theme.palette.palette_style.border.default}`
       }}
     >
       <Box
@@ -85,7 +88,7 @@ export default function ToolbBar({ search }:ToolbBarProps) {
           py: 1,
           paddingLeft: 2,
           marginRight: 2,
-          borderRight: '1px solid rgba(0, 0, 0, 0.1)'
+          borderRight: `1px solid ${theme.palette.palette_style.border.default}`
         }}
       >
         {dos.map((toolbar) => (
@@ -98,7 +101,7 @@ export default function ToolbBar({ search }:ToolbBarProps) {
           py: 1,
           paddingLeft: 2,
           marginRight: 2,
-          borderRight: '1px solid rgba(0, 0, 0, 0.1)'
+          borderRight: `1px solid ${theme.palette.palette_style.border.default}`
         }}
       >
         {views.map((toolbar) => (

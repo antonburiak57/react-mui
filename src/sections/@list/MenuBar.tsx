@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {
   Box
 } from '@mui/material';
-import Iconify from '../../components/iconify';
+import { useTheme } from '@mui/material/styles';
 
 type MenuBarProps = {
   search?: string
@@ -11,24 +11,21 @@ type MenuBarProps = {
 const menus = [
   {
     title: 'List',
-    icon: 'eva:list-outline'
+    icon: 'menu/checklist'
   },
   {
     title: 'Calendar',
-    icon: 'eva:calendar-outline'
+    icon: 'menu/calendar'
   },
   {
     title: 'Gallery',
-    icon: 'eva:file-add-outline'
-  },
-  {
-    title: 'Kanban',
-    icon: 'eva:file-text-outline'
+    icon: 'menu/add'
   }
 ];
 
 export default function MenuBar({ search }:MenuBarProps) {
   const [selectedMenu, setSelectedMenu] = useState('List');
+  const theme = useTheme();
 
   const handleMenu = (value: string) => {
     setSelectedMenu(value);
@@ -38,35 +35,34 @@ export default function MenuBar({ search }:MenuBarProps) {
     <Box
       sx={{
         display: 'flex',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.03)',
-        p: 2
+        borderBottom: `1px solid ${theme.palette.palette_style.border.default}`,
+        p: 1
       }}
     >
       <Box sx={{
-        backgroundColor: '#EEF7FF',
+        backgroundColor: theme.palette.palette_style.background.selected,
         borderRadius: 1,
-        paddingLeft: 1,
-        paddingRight: 1,
-        paddingBottom: 0.5,
-        cursor: 'pointer'
+        px: 1,
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center'
       }}>
         <Box
           component="span"
           className="svg-color"
           sx={{
-            width: 42,
-            height: 42,
+            width: 24,
+            height: 24,
             display: 'inline-block',
-            bgcolor: '#54A6FB',
-            mask: `url(/assets/icons/navbar/Favourites_plus.svg) no-repeat center / contain`,
-            WebkitMask: `url(/assets/icons/navbar/Favourites_plus.svg) no-repeat center / contain`,
-            marginLeft: 2,
-            marginTop: -0.5
+            bgcolor: theme.palette.palette_style.text.selected,
+            mask: `url(/assets/icons/menu/plus.svg) no-repeat center / contain`,
+            WebkitMask: `url(/assets/icons/menu/plus.svg) no-repeat center / contain`,
+            marginRight: 1
           }}
         />
         <Box
           sx={{
-            marginTop: -1
+            color: '#666'
           }}
         >
           Add View
@@ -76,7 +72,8 @@ export default function MenuBar({ search }:MenuBarProps) {
         sx={{
           display: 'flex',
           marginLeft: 3,
-          borderLeft: '1px solid rgba(0, 0, 0, 0.1)'
+          borderLeft: `1px solid ${theme.palette.palette_style.border.default}`,
+          paddingLeft: 1
         }}
       >
         {menus.map((menu) => (
@@ -95,40 +92,39 @@ type MenuItemProps = {
 
 function MenuItem({ menu, selected, setMenu }:MenuItemProps) {
   const { title, icon } = menu;
+  const theme = useTheme();
 
   return (
     <Box
       sx={{
-        position: icon === 'Info' ? 'fixed' : 'relative',
-        bottom: icon === 'Info' ? '60px' : 'relative',
-        width: '80px',
-        textAlign: 'center',
         cursor: 'pointer',
-        paddingTop: 1
+        display: 'flex',
+        py: 0.5,
+        px: 2
       }}
       onClick={() => { setMenu(title) }}
     >
-      <Iconify
-        icon={icon}
+      <Box
+        component="span"
+        className="svg-color"
         sx={{
-          color: selected ? '#54A6FB' : '#666666',
+          width: 18,
+          height: 18,
+          display: 'inline-block',
+          bgcolor: selected ? theme.palette.palette_style.text.selected : theme.palette.palette_style.text.primary,
+          mask: `url(/assets/icons/${icon}.svg) no-repeat center / contain`,
+          WebkitMask: `url(/assets/icons/${icon}.svg) no-repeat center / contain`,
+          marginRight: 1,
+          marginTop: 0.2
         }}
       />
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center'
+          fontSize: '16px',
+          color: selected ? theme.palette.palette_style.text.selected : theme.palette.palette_style.text.primary
         }}
       >
-        <Box
-          sx={{
-            fontSize: '16px',
-            color: selected ? '#54A6FB' : '#666666',
-            borderBottom: selected ? '1px solid #54A6FB' : 'none'
-          }}
-        >
-          {title}
-        </Box>
+        {title}
       </Box>
     </Box>
   );

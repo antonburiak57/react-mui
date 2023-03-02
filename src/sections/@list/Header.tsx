@@ -2,6 +2,7 @@ import {
   Button,
   Box
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import SearchBar from "../../components/search-bar/Searchbar";
 import Iconify from '../../components/iconify';
 
@@ -10,12 +11,14 @@ type HeaderProps = {
 };
 
 export default function Header({ search }:HeaderProps) {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.03)',
+        borderBottom: `1px solid ${theme.palette.palette_style.border.default}`,
         p: 2
       }}
     >

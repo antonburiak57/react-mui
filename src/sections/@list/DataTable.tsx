@@ -9,6 +9,7 @@ import {
   Stack,
   TextField
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 
 type DataTableProps = {
@@ -106,10 +107,92 @@ const initialTasks: Task[] = [
     phase: 'Done',
     date: '23/02/2023',
     price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
   }
 ];
 
 export default function DataTable({ search }:DataTableProps) {
+  const theme = useTheme();
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tasks, setTasks] = useState<Task[]>(() => initialTasks);
 
@@ -127,7 +210,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/task.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/task.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -150,7 +233,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/task.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/task.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -189,7 +272,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/user.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/user.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -208,7 +291,8 @@ export default function DataTable({ search }:DataTableProps) {
             sx={{
               textAlign: 'center',
               bgcolor: renderedCellValue === 'Very important' ? '#FFB7B7' : renderedCellValue === 'Standard' ? '#FFEBB7' : 'white',
-              borderRadius: '20px'
+              borderRadius: '20px',
+              color: '#666'
             }}
           >
             {renderedCellValue}
@@ -223,7 +307,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/importance.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/importance.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -242,7 +326,8 @@ export default function DataTable({ search }:DataTableProps) {
             sx={{
               textAlign: 'center',
               bgcolor: renderedCellValue === 'Done' ? '#B7FFBA' : renderedCellValue === 'In progress' ? '#FFEBB7' : 'white',
-              borderRadius: '20px'
+              borderRadius: '20px',
+              color: '#666'
             }}
           >
             {renderedCellValue}
@@ -257,7 +342,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/phase.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/phase.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -280,7 +365,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/date.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/date.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -303,7 +388,7 @@ export default function DataTable({ search }:DataTableProps) {
                 width: 16,
                 height: 16,
                 display: 'inline-block',
-                bgcolor: '#666666',
+                bgcolor: theme.palette.palette_style.text.primary,
                 mask: `url(/assets/icons/table/price.svg) no-repeat center / contain`,
                 WebkitMask: `url(/assets/icons/table/price.svg) no-repeat center / contain`,
                 marginTop: 0.5,
@@ -343,7 +428,7 @@ export default function DataTable({ search }:DataTableProps) {
         columns={columns}
         data={tasks}
         enableStickyHeader={true}
-        muiTableContainerProps={{ sx: { maxHeight: '490px' } }}
+        muiTableContainerProps={{ sx: { maxHeight: '560px' } }}
         enableRowSelection={true}
         enableTopToolbar={false}
         enablePagination={true}
@@ -353,10 +438,36 @@ export default function DataTable({ search }:DataTableProps) {
           showFirstButton: true,
           showLastButton: true,
         }}
-        initialState={{ pagination: { pageSize: 10, pageIndex: 0 } }}
+        initialState={{ pagination: { pageSize: 25, pageIndex: 0 } }}
         renderBottomToolbarCustomActions={() => (
           <AddTaskButton modalHandle={setCreateModalOpen} />
         )}
+        muiTableHeadCellProps={{
+          sx: (theme) => ({
+            color: theme.palette.palette_style.text.primary,
+            backgroundColor: theme.palette.palette_style.background.table_header_footer
+          }),
+        }}
+        muiTableFooterCellProps={{
+          sx: (theme) => ({
+            color: theme.palette.palette_style.text.primary,
+            backgroundColor: theme.palette.palette_style.background.table_header_footer,
+            p: 0
+          }),
+        }}
+        muiTableBodyCellProps={{
+          sx: (theme) => ({
+            color: theme.palette.palette_style.text.primary,
+            backgroundColor: theme.palette.palette_style.background.table_body,
+            py: 0.5
+          }),
+        }}
+        muiBottomToolbarProps={{
+          sx: () => ({
+            height: '55px',
+            backgroundColor: theme.palette.palette_style.background.table_header_footer
+          }),
+        }}
       />
       <CreateNewAccountModal
         columns={columns}
@@ -375,6 +486,8 @@ interface AddTaskButtonProps {
 export const AddTaskButton = ({
   modalHandle
 }: AddTaskButtonProps) => {
+  const theme = useTheme();
+  
   return (
     <Box
       component="span"
@@ -383,7 +496,7 @@ export const AddTaskButton = ({
         width: 36,
         height: 36,
         display: 'inline-block',
-        bgcolor: '#666666',
+        bgcolor: theme.palette.palette_style.text.primary,
         mask: `url(/assets/icons/navbar/Favourites_plus.svg) no-repeat center / contain`,
         WebkitMask: `url(/assets/icons/navbar/Favourites_plus.svg) no-repeat center / contain`,
         cursor: 'pointer'

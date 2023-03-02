@@ -8,12 +8,13 @@ import Footer from './footer';
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 80;
 
-const StyledRoot = styled('div')({
+const StyledRoot = styled('div')(({ theme }) => ({
   display: 'flex',
   minHeight: '100%',
   overflow: 'hidden',
-  backgroundColor: 'white'
-});
+  backgroundColor: theme.palette.palette_style.background.default,
+  color: theme.palette.palette_style.text.primary
+}));
 
 const Main = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -30,13 +31,13 @@ const Main = styled('div')(({ theme }) => ({
 }));
 
 const Content = styled('div')(({ theme }) => ({
-  backgroundColor: '#F5F5F5',
+  backgroundColor: theme.palette.palette_style.background.gap,
   width: '100%',
   height: `calc(100vh - 170px)`,
   paddingLeft: theme.spacing(1),
   paddingRight: theme.spacing(1),
   paddingTop: theme.spacing(1),
-  paddingBottom: theme.spacing(1),
+  paddingBottom: theme.spacing(1)
 }));
 
 export default function MainLayout() {
