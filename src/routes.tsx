@@ -4,6 +4,12 @@ import MainLayout from './layouts/main';
 import DashboardAppPage from './pages/DashboardAppPage';
 import ListPage from './pages/ListPage';
 
+declare module '@mui/material/styles/createPalette' {
+  interface Palette {
+    palette_style?: any;
+  }
+}
+
 export default function Router() {
   const routes = useRoutes([
     {
