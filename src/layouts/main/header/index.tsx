@@ -3,7 +3,7 @@ import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import Logo from '../../../components/logo';
 import AccountPopover from './AccountPopover';
 import NotificationsPopover from './NotificationsPopover';
-import SearchBar from '../../../components/search-bar/SearchBar';
+import SearchBarContainer from '../../../components/search-bar/SearchBarContainer';
 import SearchBarMin from "../../../components/search-bar/SearchBarMin";
 import useResponsive from '../../../hooks/useResponsive';
 
@@ -62,7 +62,7 @@ export default function Header({ onOpenNav }:HeaderProps) {
           <Logo />
         </Box>
 
-        {isMobile ? <SearchBar /> : <SearchBarMin />}
+        {isMobile ? <SearchBarContainer /> : <SearchBarMin />}
 
         <Box sx={{ flexGrow: 1 }} />
 

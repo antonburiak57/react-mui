@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const StyledSearchBar = styled('div')(({ theme }) => ({
+const StyledSearchBarMin = styled('div')(({ theme }) => ({
   display: 'flex',
   width: '100%',
   [theme.breakpoints.up('lg')]: {
@@ -19,7 +19,7 @@ const top100Films = [
 
 export default function SearchBarMin() {
   return (
-    <StyledSearchBar>
+    <StyledSearchBarMin>
       <Autocomplete
         disablePortal
         id="combo-box-demo"
@@ -98,6 +98,6 @@ export default function SearchBarMin() {
           </li>
         )}
       />
-    </StyledSearchBar>
+    </StyledSearchBarMin>
   );
 }
