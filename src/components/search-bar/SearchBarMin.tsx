@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import TextField from '@mui/material/TextField';
@@ -18,7 +17,7 @@ const top100Films = [
   { label: 'Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.', sub1: 'All', sub2: 'Account settings', icon: 'table/task.svg' }
 ];
 
-export default function SearchBar() {
+export default function SearchBarMin() {
   return (
     <StyledSearchBar>
       <Autocomplete

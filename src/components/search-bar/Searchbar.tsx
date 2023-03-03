@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { Input, Slide, Button, IconButton, InputAdornment, ClickAwayListener } from '@mui/material';
+import { Slide, IconButton, ClickAwayListener } from '@mui/material';
 import { bgBlur } from '../../utils/cssStyles';
 import Iconify from '../iconify';
 import customShadows from '../../theme/customShadows';
@@ -11,7 +11,7 @@ const HEADER_DESKTOP = 92;
 
 const StyledSearchbar = styled('div')(({ theme }) => ({
   ...bgBlur({ color: theme.palette.background.default }),
-  top: '104px',
+  top: '75px',
   left: '15px',
   zIndex: 99,
   width: 'calc(100vw - 30px)',
@@ -24,10 +24,11 @@ const StyledSearchbar = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     height: HEADER_DESKTOP,
     padding: theme.spacing(0, 5),
+    top: '104px',
   },
 }));
 
-export default function Searchbar() {
+export default function SearchBar() {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
