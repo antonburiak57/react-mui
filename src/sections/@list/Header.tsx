@@ -3,7 +3,6 @@ import {
   Box
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import SearchBar from "../../components/search-bar/Searchbar";
 import Iconify from '../../components/iconify';
 
 type HeaderProps = {
@@ -19,7 +18,7 @@ export default function Header({ search }:HeaderProps) {
         display: 'flex',
         justifyContent: 'space-between',
         borderBottom: `1px solid ${theme.palette.palette_style.border.default}`,
-        p: 2
+        p: {xs: 1, lg: 2}
       }}
     >
       <Box
@@ -42,7 +41,7 @@ export default function Header({ search }:HeaderProps) {
         />
         <Box
           sx={{
-            fontSize: '22px',
+            fontSize: {xs: '18px', lg: '22px'},
             fontWeight: '600',
             lineHeight: '1.2',
             marginLeft: 1,
@@ -55,14 +54,14 @@ export default function Header({ search }:HeaderProps) {
           component="span"
           className="svg-color"
           sx={{
-            width: 24,
-            height: 24,
+            width: {xs: 16, lg: 24},
+            height: {xs: 16, lg: 24},
             display: 'inline-block',
             bgcolor: '#16385C',
             mask: `url(/assets/icons/dots.svg) no-repeat center / contain`,
             WebkitMask: `url(/assets/icons/dots.svg) no-repeat center / contain`,
-            marginLeft: 1,
-            marginTop: 0.3,
+            marginLeft: {xs: 0.5, lg: 1},
+            marginTop: {xs: 0.5, lg: 0.3},
             cursor: 'pointer'
           }}
         />
@@ -73,7 +72,6 @@ export default function Header({ search }:HeaderProps) {
           alignItems: 'center'
         }}
       >
-        <SearchBar />
         <Box
           sx={{ marginLeft: 2 }}
         >
@@ -82,7 +80,7 @@ export default function Header({ search }:HeaderProps) {
           </Button>
         </Box>
         <Box
-          sx={{ marginLeft: 2 }}
+          sx={{ marginLeft: {xs: 0.5, lg: 2} }}
         >
           <Button size="small" color="primary" variant="text" startIcon={<Iconify icon={'eva:share-outline'} />}>
             Share

@@ -77,7 +77,7 @@ export default function ToolbBar({ search }:ToolbBarProps) {
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: {md: 'flex'},
         py: 0.5,
         borderBottom: `1px solid ${theme.palette.palette_style.border.default}`
       }}
@@ -88,7 +88,8 @@ export default function ToolbBar({ search }:ToolbBarProps) {
           py: 1,
           paddingLeft: 2,
           marginRight: 2,
-          borderRight: `1px solid ${theme.palette.palette_style.border.default}`
+          borderRight: {md: `1px solid ${theme.palette.palette_style.border.default}`},
+          borderBottom: {xs: `1px solid ${theme.palette.palette_style.border.default}`, md: 'none'}
         }}
       >
         {dos.map((toolbar) => (
@@ -101,7 +102,8 @@ export default function ToolbBar({ search }:ToolbBarProps) {
           py: 1,
           paddingLeft: 2,
           marginRight: 2,
-          borderRight: `1px solid ${theme.palette.palette_style.border.default}`
+          borderRight: {md: `1px solid ${theme.palette.palette_style.border.default}`},
+          borderBottom: {xs: `1px solid ${theme.palette.palette_style.border.default}`, md: 'none'}
         }}
       >
         {views.map((toolbar) => (
@@ -113,7 +115,9 @@ export default function ToolbBar({ search }:ToolbBarProps) {
           display: 'flex',
           py: 1,
           paddingLeft: 2,
-          flexWrap: 'wrap'
+          width: '100%',
+          overflow: 'auto'
+          // flexWrap: 'wrap'
         }}
       >
         {actions.map((toolbar) => (

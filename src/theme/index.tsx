@@ -54,8 +54,8 @@ export default function ThemeProvider({ children }:ThemeProviderProps) {
             cursor: 'pointer',
             position: 'fixed',
             zIndex: 1111,
-            right: '120px',
-            top: '27px'
+            right: {xs: '100px', lg: '120px'},
+            top: {xs: '19px', lg: '27px'}
           }}
           onClick={handleMode}
         />

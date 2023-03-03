@@ -22,6 +22,8 @@ import {
       color: '#c92929'
     }
   ];
+  const FOOTER_MOBILE = 64;
+  const FOOTER_DESKTOP = 80;
   
   export default function Footer() {
     const theme = useTheme();
@@ -34,9 +36,9 @@ import {
           width: '100%',
           bottom: 0,
           left: 0,
-          paddingLeft: '140px',
-          height: '80px',
-          paddingTop: '24px',
+          paddingLeft: {xs: '30px', lg: '140px'},
+          height: {xs: FOOTER_MOBILE, lg: FOOTER_DESKTOP},
+          paddingTop: {xs: '20px', lg: '28px'},
           backgroundColor: theme.palette.palette_style.background.default,
           zIndex: 1000
         }}

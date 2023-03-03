@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
+import Pagination from '@mui/material/Pagination';
 
 type DataTableProps = {
   search?: string
@@ -188,13 +189,184 @@ const initialTasks: Task[] = [
     phase: 'Done',
     date: '23/02/2023',
     price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'Smith',
+    importance: 'Standard',
+    phase: 'In progress',
+    date: '23/02/2023',
+    price: '99'
+  },
+  {
+    task_name: 'Choose theme color',
+    description: 'test',
+    user: 'John',
+    importance: 'Very important',
+    phase: 'Done',
+    date: '23/02/2023',
+    price: '12'
   }
 ];
+const PAGE_SIZE = 15;
 
 export default function DataTable({ search }:DataTableProps) {
   const theme = useTheme();
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tasks, setTasks] = useState<Task[]>(() => initialTasks);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: PAGE_SIZE,
+  });
+
+  useEffect(() => {
+    //do something when the pagination state changes
+  }, [pagination.pageIndex, pagination.pageSize]);
 
   const columns = useMemo<MRT_ColumnDef<Task>[]>(
     () => [
@@ -408,6 +580,14 @@ export default function DataTable({ search }:DataTableProps) {
     setTasks([...tasks]);
   };
 
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    console.log(value)
+    setPagination({
+      ...pagination,
+      pageIndex: (value - 1)
+    });
+  };
+
   return (
     <Box
       sx={{
@@ -428,20 +608,23 @@ export default function DataTable({ search }:DataTableProps) {
         columns={columns}
         data={tasks}
         enableStickyHeader={true}
-        muiTableContainerProps={{ sx: { maxHeight: '560px' } }}
+        muiTableContainerProps={{ sx: { maxHeight: {xs: 'calc(100vh - 415px)', lg: 'calc(100vh - 395px)'} } }}
         enableRowSelection={true}
         enableTopToolbar={false}
+        enableBottomToolbar={false}
         enablePagination={true}
         editingMode="modal"
-        muiTablePaginationProps={{
-          rowsPerPageOptions: [5, 10, 25, 50, 100],
-          showFirstButton: true,
-          showLastButton: true,
-        }}
-        initialState={{ pagination: { pageSize: 25, pageIndex: 0 } }}
-        renderBottomToolbarCustomActions={() => (
-          <AddTaskButton modalHandle={setCreateModalOpen} />
-        )}
+        // muiTablePaginationProps={{
+        //   rowsPerPageOptions: [5, 10, 25, 50, 100],
+        //   showFirstButton: false,
+        //   showLastButton: false,
+        // }}
+        onPaginationChange={setPagination}
+        state={{ pagination }}
+        // initialState={{ pagination: { pageSize: 25, pageIndex: 0 } }}
+        // renderBottomToolbarCustomActions={() => (
+        //   <AddTaskButton modalHandle={setCreateModalOpen} />
+        // )}
         muiTableHeadCellProps={{
           sx: (theme) => ({
             color: theme.palette.palette_style.text.primary,
@@ -469,6 +652,25 @@ export default function DataTable({ search }:DataTableProps) {
           }),
         }}
       />
+      <Stack
+        sx={{
+          // position: 'fixed',
+          // bottom: '87px',
+          // width: 'calc(100% - 108px)',
+          position: 'absolute',
+          bottom: {xs: '-45px', lg: '-60px'},
+          width: '100%',
+          zIndex: 1,          
+          p: {xs: 0.5, lg: 1.5},
+          backgroundColor: theme.palette.palette_style.background.table_header_footer,
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'inherit'
+        }}
+      >
+        <AddTaskButton modalHandle={setCreateModalOpen} />
+        <Pagination count={Math.ceil(tasks.length / PAGE_SIZE)} page={(pagination.pageIndex + 1)} onChange={handleChange} />
+      </Stack>
       <CreateNewAccountModal
         columns={columns}
         open={createModalOpen}

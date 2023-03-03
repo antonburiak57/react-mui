@@ -42,7 +42,7 @@ export default function MenuBar({ search }:MenuBarProps) {
       <Box sx={{
         backgroundColor: theme.palette.palette_style.background.selected,
         borderRadius: 1,
-        px: 1,
+        px: {xs: 0.5, lg: 1},
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center'
@@ -51,18 +51,20 @@ export default function MenuBar({ search }:MenuBarProps) {
           component="span"
           className="svg-color"
           sx={{
-            width: 24,
-            height: 24,
+            width: {xs: 18, lg: 24},
+            height: {xs: 18, lg: 24},
             display: 'inline-block',
             bgcolor: theme.palette.palette_style.text.selected,
             mask: `url(/assets/icons/menu/plus.svg) no-repeat center / contain`,
             WebkitMask: `url(/assets/icons/menu/plus.svg) no-repeat center / contain`,
-            marginRight: 1
+            marginRight: {xs: 0.5, lg: 1}
           }}
         />
         <Box
           sx={{
-            color: '#666'
+            color: '#666',
+            fontSize: {xs: '14px', lg: '16px'},
+            minWidth: '64px'
           }}
         >
           Add View
@@ -71,9 +73,11 @@ export default function MenuBar({ search }:MenuBarProps) {
       <Box
         sx={{
           display: 'flex',
-          marginLeft: 3,
+          marginLeft: {xs: 1, lg: 3},
           borderLeft: `1px solid ${theme.palette.palette_style.border.default}`,
-          paddingLeft: 1
+          paddingLeft: 1,
+          width: {xs: 'calc(100vw - 120px)', md: 'inherit'},
+          overflow: 'auto'
         }}
       >
         {menus.map((menu) => (
@@ -100,7 +104,7 @@ function MenuItem({ menu, selected, setMenu }:MenuItemProps) {
         cursor: 'pointer',
         display: 'flex',
         py: 0.5,
-        px: 2
+        px: {xs: 1, lg: 2}
       }}
       onClick={() => { setMenu(title) }}
     >

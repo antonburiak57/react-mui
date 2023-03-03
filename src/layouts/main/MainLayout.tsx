@@ -20,7 +20,7 @@ const Main = styled('div')(({ theme }) => ({
   flexGrow: 1,
   overflow: 'auto',
   minHeight: '100%',
-  paddingTop: APP_BAR_MOBILE + 24,
+  paddingTop: APP_BAR_MOBILE,
   paddingBottom: theme.spacing(10),
   [theme.breakpoints.up('lg')]: {
     paddingTop: APP_BAR_DESKTOP,
@@ -33,9 +33,12 @@ const Main = styled('div')(({ theme }) => ({
 const Content = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.palette_style.background.gap,
   width: '100%',
-  height: `calc(100vh - 170px)`,
-  paddingLeft: theme.spacing(1),
-  paddingRight: theme.spacing(1),
+  [theme.breakpoints.up('lg')]: {
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+    height: 'calc(100vh - 160px)'
+  },
+  height: 'calc(100vh - 128px)',
   paddingTop: theme.spacing(1),
   paddingBottom: theme.spacing(1)
 }));

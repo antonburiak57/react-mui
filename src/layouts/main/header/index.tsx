@@ -3,9 +3,11 @@ import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import Logo from '../../../components/logo';
 import AccountPopover from './AccountPopover';
 import NotificationsPopover from './NotificationsPopover';
+import SearchBarMin from '../../../components/search-bar/SearchBar';
+import SearchBar from "../../../components/search-bar/SearchBarMin";
+import useResponsive from '../../../hooks/useResponsive';
 
 const HEADER_MOBILE = 64;
-
 const HEADER_DESKTOP = 80;
 
 const StyledRoot = styled(AppBar)(({ theme }) => ({
@@ -13,8 +15,11 @@ const StyledRoot = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none'
 }));
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  minHeight: HEADER_MOBILE,
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({  
+  [theme.breakpoints.up('xs')]: {
+    height: HEADER_MOBILE,
+    padding: theme.spacing(0, 1),
+  },
   [theme.breakpoints.up('lg')]: {
     height: HEADER_DESKTOP,
     padding: theme.spacing(0, 3),
@@ -27,6 +32,7 @@ type HeaderProps = {
 
 export default function Header({ onOpenNav }:HeaderProps) {
   const theme = useTheme();
+  const isMobile = useResponsive('down', 'sm');
 
   return (
     <StyledRoot>
@@ -34,7 +40,7 @@ export default function Header({ onOpenNav }:HeaderProps) {
         <IconButton
           onClick={onOpenNav}
           sx={{
-            mr: 1,
+            mr: {md: 1},
             color: theme.palette.palette_style.text.primary,
           }}
         >
@@ -52,9 +58,11 @@ export default function Header({ onOpenNav }:HeaderProps) {
           />
         </IconButton>
 
-        <Box sx={{ px: 2.5, py: 3, display: 'inline-flex', marginLeft: 2 }}>
+        <Box sx={{ px: {xs: 1, md: 2.5}, display: 'inline-flex', marginLeft: { lg: 2 } }}>
           <Logo />
         </Box>
+
+        {isMobile ? <SearchBarMin /> : <SearchBar />}
 
         <Box sx={{ flexGrow: 1 }} />
 
